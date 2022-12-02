@@ -3,6 +3,9 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class ManipuladorArquivo {
 
@@ -39,8 +42,12 @@ public class ManipuladorArquivo {
 	
 	public static void escritorELeitura(String pathEscrita, String pathLeitura) throws IOException {
 		//DECLARAÇÃO DE VÁRIAVEIS UTILIZADAS
-		BufferedReader buffRead = new BufferedReader(new FileReader(pathLeitura));
+		
+		/*BufferedReader buffRead = new BufferedReader(new FileReader(pathLeitura));
 		BufferedWriter buffWrite = new BufferedWriter(new FileWriter(pathEscrita));
+		*/
+		scannerArquivo(pathLeitura);
+		/*
 		int qtdPalavrasReservadas = 0;
 		int palavrasReservadas = 0;
 		int qtdLinhas = 0;
@@ -53,11 +60,17 @@ public class ManipuladorArquivo {
 			while (true) {
 				if (linha != null) {
 					//PROXIMO_TOKEN
-					proximo_token(linha);
 					//validaBlocoDeInstrucao(linha);
-					palavrasReservadas = verificarPalavrasReservadas(linha);
-					System.out.print(linha+"\n");
-					buffWrite.append(linha+"\n");
+					CaracteresEspeciais.teste(linha.toUpperCase());
+					//palavrasReservadas = verificarPalavrasReservadas(linha);
+					if(linha != "") {
+						//System.out.print(linha +"\n");
+						buffWrite.append(linha + "\n");
+					}else {
+						//System.out.print(linha);
+						buffWrite.append(linha);
+					}
+					
 				} else {
 					break;
 				}
@@ -66,32 +79,25 @@ public class ManipuladorArquivo {
 				qtdPalavrasReservadas += palavrasReservadas;
 				palavrasReservadas = 0;
 			}
-			buffWrite.append("Quantidade linhas: "+qtdLinhas);
+			buffWrite.append("\nQuantidade linhas: "+qtdLinhas);
 			//FINALIZA O ARQUIVO CASO NÃO TENHA MAIS LINHAS PARA SER LIDO
 			buffWrite.close();
 			buffRead.close();
 		}else {
 			System.out.println("Não foi possível verificar o arquivo");
 		}
-		
-	}
-	
-	private static void proximo_token(String linha) {
-		
+		*/
 	}
 
-	private static int verificarPalavrasReservadas(String linha) {
-		boolean verifica = false;
-		while(true) {
-			if(linha != null) {
-				CaracteresEspeciais.teste(linha.toUpperCase());
-				System.out.println(verifica);
-			}else {
-				break;
-			}
-		}
+	private static void scannerArquivo(String pathLeitura) throws IOException {
 		
-		return 0;
+		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("resultado.txt"));
+		
+		Scanner scanner = new Scanner(pathLeitura);
+		Parser  parser = new Parser(scanner);
+		
+		parser.inicioVerificacao(buffWrite);
+		
 	}
 
 }

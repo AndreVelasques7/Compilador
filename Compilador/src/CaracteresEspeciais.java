@@ -44,7 +44,7 @@ public enum CaracteresEspeciais {
 				if(col.getValor().equals(constEnum)) {
 					return true;
 				}
-				System.out.println("Teste obtendo todos valores -> Caracter: "+ col + " Valor: " +  col.getValor() + "\n");
+				//System.out.println("Teste obtendo todos valores -> Caracter: "+ col + " Valor: " +  col.getValor() + "\n");
 			}
 			
 			return false;

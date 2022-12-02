@@ -19,6 +19,7 @@ public enum PalavrasReservadas {
 	GOTO("goto",16),
 	IF("if",17),
 	INT("int",18),
+	REAL("real", 33),
 	LONG("long",19),
 	REGISTER("register",20),
 	RETURN("return",21),
@@ -35,7 +36,10 @@ public enum PalavrasReservadas {
 	VOLATILE("volatile",30),
 	WHILE("while",30),
 	FALSE("false", 31),
-	TRUE("true", 32);
+	TRUE("true", 32),
+	VAR("var", 33),
+	MAIN("main", 34),
+	END("end", 35);
 	
 	
 	
@@ -57,6 +61,23 @@ public enum PalavrasReservadas {
 		} catch (Exception e) {
 			PalavrasReservadas ret = null;
 			return ret;
+		}
+	}
+	
+	public static boolean validacaoReservada(String constEnum) {
+		try {
+			PalavrasReservadas arr[] = PalavrasReservadas.values();
+			
+			for (PalavrasReservadas col : arr) {
+				if(col.getSigla().equals(constEnum)) {
+					return true;
+				}
+				//System.out.println("Teste obtendo todos valores -> Caracter: "+ col + " Valor: " +  col.getValor() + "\n");
+			}
+			
+			return false;
+		} catch (Exception e) {
+			return false;
 		}
 	}
 
