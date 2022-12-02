@@ -1,0 +1,41 @@
+
+public enum Constantes {
+	
+	ASM("asm", 1, "Indica instruções em assembly."
+			);
+
+	private String sigla;
+	private int codigo;
+	private String descricacao;
+	
+	private Constantes(String sigla, int codigo, String descricao) {
+		this.codigo = codigo;
+		this.sigla = sigla;
+		this.descricacao = descricao;
+	}
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getDescricacao() {
+		return descricacao;
+	}
+
+	public void setDescricacao(String descricacao) {
+		this.descricacao = descricacao;
+	}
+
+}

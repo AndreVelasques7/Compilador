@@ -1,0 +1,28 @@
+import java.io.IOException;
+
+public class main {
+
+	public static void main(String[] args) throws IOException {
+
+		String arquivoResultado = "resultado.txt";
+		String arquivoLeitura = "leitura.txt";
+
+		// ManipuladorArquivo.leitor(arquivoLeitura);
+//		ManipuladorArquivo.escritor(arquivoResultado);
+//		ManipuladorArquivo.leitor(arquivoResultado);
+//		ManipuladorArquivo.escritorELeitura(arquivoResultado, arquivoLeitura);
+		String teste = "VOIDES";
+		//teste.substring(4, 6);
+		Constantes.validar(teste);
+
+	}
+
+	public static boolean validar(String apartEnum) {
+		try {
+			Apartamentos.valueOf(apartEnum);
+			return true;
+		} catch (IllegalArgumentException e) {
+			return false;
+		}
+	}
+}

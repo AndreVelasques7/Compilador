@@ -1,0 +1,64 @@
+public enum Apartamentos {
+    F1(""), 
+    F1003("T1"), 
+    F1101("T1"),
+    F1102("T2"), 
+    F1104("T2"), 
+    F1303("T1"),
+    F1403("T2"),
+    F1502("T2"), 
+    F2(""), 
+    F2001("T1"),
+    F2002("T1"), 
+    F2101("T1"),
+    F2102("T2"),
+    F2204("T2"),
+    F2302("T2"),
+    F2303("T1"),
+    F2304("T2"),
+    F2401("T2"),
+    F2402("T1"),
+    F2403("T1"),
+    F2501("T1"),
+    F2503("T1"),
+    F2504("T1"),
+    F3(""),
+    F3003("T1"),
+    F3004("T1"),
+    F3203("T1"),
+    F3401("T2"),
+    F3404("T2"),
+    F3501("T1"),
+    F3502("T1"),
+    F3503("T1");
+
+    public final String tipo;
+    public final String bloco;
+    public final String apartamento;
+
+    private Apartamentos(String tipo) {
+        this.tipo = tipo;
+        this.bloco = "";
+        this.apartamento = toApart().substring(0, 3);
+    }
+
+    public String toApart() {
+        return name().length() > 2 ? name().substring(2, 5) + " " + name().substring(0, 2) : name();
+    }
+
+    public static String toEnum(String apartamento) {
+        return apartamento.length() > 2 ? apartamento.substring(4, 6) + apartamento.substring(0, 3) : apartamento;
+    }
+
+    public static boolean validar(String apartEnum) {
+        try {
+        	Apartamentos ret = null;
+        	if(apartEnum !=  null) {
+        		ret = Apartamentos.valueOf(apartEnum);
+        	}
+            return ret != null;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+}

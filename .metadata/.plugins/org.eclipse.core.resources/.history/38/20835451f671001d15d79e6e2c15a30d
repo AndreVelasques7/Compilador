@@ -1,0 +1,26 @@
+import java.io.IOException;
+
+public class main {
+
+	public static void main(String[] args) throws IOException {
+
+		String arquivoResultado = "resultado.txt";
+		String arquivoLeitura = "leitura.txt";
+
+		// ManipuladorArquivo.leitor(arquivoLeitura);
+//		ManipuladorArquivo.escritor(arquivoResultado);
+//		ManipuladorArquivo.leitor(arquivoResultado);
+		ManipuladorArquivo.escritorELeitura(arquivoResultado, arquivoLeitura);
+		validar("F1101");
+
+	}
+
+	public static boolean validar(String apartEnum) {
+		try {
+			Apartamentos.valueOf(apartEnum);
+			return true;
+		} catch (IllegalArgumentException e) {
+			return false;
+		}
+	}
+}

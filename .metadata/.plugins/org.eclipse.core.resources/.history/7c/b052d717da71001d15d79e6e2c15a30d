@@ -1,0 +1,13 @@
+
+public class main {
+
+	public static void main(String[] args) {
+		
+		String path = "/tmp/file.txt";
+
+		ManipuladorArquivo.escritor(path);
+		ManipuladorArquivo.leitor(path);
+
+	}
+
+}

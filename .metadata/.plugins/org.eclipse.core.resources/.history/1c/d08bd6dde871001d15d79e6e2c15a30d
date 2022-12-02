@@ -1,0 +1,8 @@
+public class Constantes {
+	
+	//PALAVRAS RESERVADAS C
+	
+	private static private static final String ASM = "Indica instruções em assembly.";
+	  
+
+}

@@ -1,0 +1,9 @@
+
+{Programa em TINY_FATORIAL}	
+read h; {Leitura do fatorial}
+repeat;
+		fact := 0;
+		h := h - 100;
+unitil h = 0;
+write fact;
+Quantidade linhas: 8
