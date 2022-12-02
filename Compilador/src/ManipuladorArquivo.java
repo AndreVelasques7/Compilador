@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -39,16 +38,23 @@ public class ManipuladorArquivo {
 	}
 	
 	public static void escritorELeitura(String pathEscrita, String pathLeitura) throws IOException {
+		//DECLARAÇÃO DE VÁRIAVEIS UTILIZADAS
 		BufferedReader buffRead = new BufferedReader(new FileReader(pathLeitura));
 		BufferedWriter buffWrite = new BufferedWriter(new FileWriter(pathEscrita));
+		int qtdPalavrasReservadas = 0;
+		int palavrasReservadas = 0;
+		int qtdLinhas = 0;
 		
+		//VERIFICAÇÃO SE FOI POSSÍVEL LER O ARQUIVO
 		if(buffRead != null) {
 			String linha = "";
-			int qtdPalavrasReservadas = 0;
-			int palavrasReservadas = 0;
-			int qtdLinhas = 0;
+			
+			//PERCORRE O ARQUIVO LINHA A LINHA
 			while (true) {
 				if (linha != null) {
+					//PROXIMO_TOKEN
+					proximo_token(linha);
+					//validaBlocoDeInstrucao(linha);
 					palavrasReservadas = verificarPalavrasReservadas(linha);
 					System.out.print(linha+"\n");
 					buffWrite.append(linha+"\n");
@@ -61,6 +67,7 @@ public class ManipuladorArquivo {
 				palavrasReservadas = 0;
 			}
 			buffWrite.append("Quantidade linhas: "+qtdLinhas);
+			//FINALIZA O ARQUIVO CASO NÃO TENHA MAIS LINHAS PARA SER LIDO
 			buffWrite.close();
 			buffRead.close();
 		}else {
@@ -68,10 +75,20 @@ public class ManipuladorArquivo {
 		}
 		
 	}
+	
+	private static void proximo_token(String linha) {
+		
+	}
 
 	private static int verificarPalavrasReservadas(String linha) {
-		if(linha.contains("")) {
-			
+		boolean verifica = false;
+		while(true) {
+			if(linha != null) {
+				CaracteresEspeciais.teste(linha.toUpperCase());
+				System.out.println(verifica);
+			}else {
+				break;
+			}
 		}
 		
 		return 0;
